@@ -1,1 +1,1 @@
-print comb
+positive or negative
