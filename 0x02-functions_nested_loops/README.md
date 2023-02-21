@@ -1,1 +1,1 @@
-2-print_alphabet_x10.c
+9-times_table.c
