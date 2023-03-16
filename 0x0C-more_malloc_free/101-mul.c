@@ -1,29 +1,43 @@
 #include "main.h"
+#include <stdio.h>
+#include <stdlib.h>
 
 /**
- * main - multiplies two positive numbers
- * @argc: n arguments
- * @argv: args
- * Return: int
+ * isnum - checks for a digit.
+ * @s: An ascii char to compare
+ * Return: Always 0.
  */
-int main(int argc, char *argv[])
+int isnum(char *s)
 {
-unsigned long mul;
-int i, j;
-	if (argc != 3)
-	{ printf("Error\n");
-	exit(98); }
-	for (i = 1; i < argc; i++)
-	{
-		for (j = 0; argv[i][j] != '\0'; j++)
-		{
-			if (argv[i][j] > 57 || argv[i][j] < 48)
-			{  printf("Error\n");
-			exit(98); }
-		}
+	int i;
 
+	for (i = 0; s[i] != '\0'; i++)
+	{
+		if (s[i] < '0' || s[i] > '9')
+			return (0);
 	}
-	mul = atol(argv[1]) *  atol(argv[2]);
-	printf("%lu\n", mul);
-return (0);
+	return (1);
+}
+/**
+ * main - multiplies two large numbers
+ * @argc: argument count
+ * @argv: argument vector
+ * Return: Error or 0 if is correct
+ */
+
+int main(int argc, char **argv)
+{
+
+	if (argc != 3)
+	{
+		printf("Error\n");
+		exit(98);
+	}
+	if (!isnum(argv[1]) && !isnum(argv[2]))
+	{
+		printf("Error\n");
+		exit(98);
+	}
+	printf("%d\n", atoi(argv[2]) * atoi(argv[1]));
+	return (0);
 }
